@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/javafirstclient/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javafirstclient/target/generated/cxf" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javafirstws/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javafirstws/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/restws/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/restws/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/soaptest/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/soaptest/target/generated/cxf" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wsdlfirst/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wsdlfirst/target/generated/cxf" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="3f753ce3-b71a-4af5-9335-f9da008ed67e" activeEnvironment="Default" name="paymentProcessor" resourceRoot="" soapui-version="5.6.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="825704e4-c71d-495b-8ccd-4db2317feefe" wsaVersion="NONE" name="PaymentProcessorImplServiceSoapBinding" type="wsdl" bindingName="{http://soap.ws.kissan.com/}PaymentProcessorImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/paymentProcessor?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/paymentProcessor?wsdl"><con:part><con:url>http://localhost:8080/paymentProcessor?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="PaymentProcessorImplService" targetNamespace="http://soap.ws.kissan.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://soap.ws.kissan.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://soap.ws.kissan.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="processPayment" type="tns:processPayment"/>
+      <xs:element name="processPaymentResponse" type="tns:processPaymentResponse"/>
+      <xs:complexType name="processPayment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:PaymentProcessorRequest"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PaymentProcessorRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="creditCardInfo" type="tns:CreditCardInfo"/>
+          <xs:element minOccurs="0" name="amount" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CreditCardInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cardNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="expirtyDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+          <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+          <xs:element minOccurs="0" name="secCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="Address" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="processPaymentResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:PaymentProcessorResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PaymentProcessorResponse">
+        <xs:sequence>
+          <xs:element name="result" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="processPaymentResponse">
+    <wsdl:part element="tns:processPaymentResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="processPayment">
+    <wsdl:part element="tns:processPayment" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PaymentProcessor">
+    <wsdl:operation name="processPayment">
+      <wsdl:input message="tns:processPayment" name="processPayment"></wsdl:input>
+      <wsdl:output message="tns:processPaymentResponse" name="processPaymentResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PaymentProcessorImplServiceSoapBinding" type="tns:PaymentProcessor">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="processPayment">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="processPayment">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="processPaymentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PaymentProcessorImplService">
+    <wsdl:port binding="tns:PaymentProcessorImplServiceSoapBinding" name="PaymentProcessorImplPort">
+      <soap:address location="http://localhost:8080/paymentProcessor"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/paymentProcessor</con:endpoint></con:endpoints><con:operation id="506a1b4c-e07e-4566-9962-215520363135" isOneWay="false" action="" name="processPayment" bindingOperationName="processPayment" type="Request-Response" outputName="processPaymentResponse" inputName="processPayment" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5f402f7f-7f37-4429-a3fd-32795dfbc544" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/paymentProcessor</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.ws.kissan.com/">
+   <soapenv:Header>
+     <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" soapenv:mustUnderstand="1">
+       <wsse:UsernameToken xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:Username xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">kissan</wsse:Username>
+         <wsse:Password xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">kissan</wsse:Password>
+       </wsse:UsernameToken>
+     </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <soap:processPayment>
+         <!--Optional:-->
+         <arg0>
+            <!--Optional:-->
+            <creditCardInfo>
+               <!--Optional:-->
+               <cardNumber>123456</cardNumber>
+               <!--Optional:-->
+               <expirtyDate>2021-05-15+06:00</expirtyDate>
+               <!--Optional:-->
+               <firstName>Kissan</firstName>
+               <!--Optional:-->
+               <lastName>Naik</lastName>
+               <!--Optional:-->
+               <secCode>478</secCode>
+               <!--Optional:-->
+               <Address>Bangalore</Address>
+            </creditCardInfo>
+            <!--Optional:-->
+            <amount>1000</amount>
+         </arg0>
+      </soap:processPayment>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.ws.kissan.com/PaymentProcessor/processPayment"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="17c58c1b-ab7c-43f1-a85c-3dca1f5adb10" name="PaymentProcessorImplServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="8588c724-2a97-45bc-89fd-1306f46fe29e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="processPayment TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="53a3dbec-b582-4264-943c-cdf91f41ffd5" name="processPayment"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PaymentProcessorImplServiceSoapBinding</con:interface><con:operation>processPayment</con:operation><con:request name="processPayment" id="7a64b15c-abe3-49e9-9f52-7d2347e154a4"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/paymentProcessor</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.ws.kissan.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <soap:processPayment>
+         <!--Optional:-->
+         <arg0>
+            <!--Optional:-->
+            <creditCardInfo>
+               <!--Optional:-->
+               <cardNumber>?</cardNumber>
+               <!--Optional:-->
+               <expirtyDate>?</expirtyDate>
+               <!--Optional:-->
+               <firstName>?</firstName>
+               <!--Optional:-->
+               <lastName>?</lastName>
+               <!--Optional:-->
+               <secCode>?</secCode>
+               <!--Optional:-->
+               <Address>?</Address>
+            </creditCardInfo>
+            <!--Optional:-->
+            <amount>?</amount>
+         </arg0>
+      </soap:processPayment>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://soap.ws.kissan.com/PaymentProcessor/processPayment"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

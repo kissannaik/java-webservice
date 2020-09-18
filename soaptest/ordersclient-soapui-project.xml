@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="e29c57ff-93cd-4834-a25d-9d86f29e2a2a" activeEnvironment="Default" name="ordersclient" resourceRoot="" soapui-version="5.6.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="5485ff25-b3ec-43f2-abd8-c494e216f617" wsaVersion="NONE" name="OrderWSClientServiceSoapBinding" type="wsdl" bindingName="{http://ws.soaptest.ws.kissan.com/}OrderWSClientServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8081/hellows/ordersclient?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8081/hellows/ordersclient?wsdl"><con:part><con:url>http://localhost:8081/hellows/ordersclient?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="OrderWSClientService" targetNamespace="http://ws.soaptest.ws.kissan.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.soaptest.ws.kissan.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.kissan.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.kissan.com/">
+      <xs:element name="createOrdersRequest" type="tns:createOrdersRequest"/>
+      <xs:element name="createOrdersResponse" type="tns:createOrdersResponse"/>
+      <xs:element name="deleteOrdersRequest" type="tns:deleteOrdersRequest"/>
+      <xs:element name="deleteOrdersResponse" type="tns:deleteOrdersResponse"/>
+      <xs:element name="getOrdersRequest" type="tns:getOrdersRequest"/>
+      <xs:element name="getOrdersResponse" type="tns:getOrdersResponse"/>
+      <xs:complexType name="createOrdersRequest">
+        <xs:sequence>
+          <xs:element name="customerId" type="xs:integer"/>
+          <xs:element name="order" type="tns:order"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="order">
+        <xs:sequence>
+          <xs:element name="id" type="xs:integer"/>
+          <xs:element maxOccurs="unbounded" name="product" type="tns:product"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="product">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="0" name="quantity" type="xs:integer"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteOrdersRequest">
+        <xs:sequence>
+          <xs:element name="customerId" type="xs:integer"/>
+          <xs:element name="orderId" type="xs:integer"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteOrdersResponse">
+        <xs:sequence>
+          <xs:element name="result" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getOrdersRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="customerId" type="xs:integer"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getOrdersResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="order" nillable="true" type="tns:order"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createOrdersResponse">
+        <xs:sequence>
+          <xs:element name="result" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://ws.soaptest.ws.kissan.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.kissan.com/">
+      <xs:import namespace="http://www.kissan.com/"/>
+      <xs:element name="createOrder" type="tns:createOrder"/>
+      <xs:element name="createOrderResponse" type="tns:createOrderResponse"/>
+      <xs:element name="order" type="tns:order"/>
+      <xs:element name="orderResponse" type="tns:orderResponse"/>
+      <xs:complexType name="order">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="orderResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createOrder">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="ns1:createOrdersRequest"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createOrderResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="MalformedURLException" type="tns:MalformedURLException"/>
+      <xs:complexType name="MalformedURLException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="createOrderResponse">
+    <wsdl:part element="tns:createOrderResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createOrder">
+    <wsdl:part element="tns:createOrder" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="MalformedURLException">
+    <wsdl:part element="tns:MalformedURLException" name="MalformedURLException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="order">
+    <wsdl:part element="tns:order" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orderResponse">
+    <wsdl:part element="tns:orderResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="OrderWSClient">
+    <wsdl:operation name="order">
+      <wsdl:input message="tns:order" name="order"></wsdl:input>
+      <wsdl:output message="tns:orderResponse" name="orderResponse"></wsdl:output>
+      <wsdl:fault message="tns:MalformedURLException" name="MalformedURLException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createOrder">
+      <wsdl:input message="tns:createOrder" name="createOrder"></wsdl:input>
+      <wsdl:output message="tns:createOrderResponse" name="createOrderResponse"></wsdl:output>
+      <wsdl:fault message="tns:MalformedURLException" name="MalformedURLException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OrderWSClientServiceSoapBinding" type="tns:OrderWSClient">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="order">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="order">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="orderResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="MalformedURLException">
+        <soap:fault name="MalformedURLException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createOrder">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createOrder">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createOrderResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="MalformedURLException">
+        <soap:fault name="MalformedURLException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OrderWSClientService">
+    <wsdl:port binding="tns:OrderWSClientServiceSoapBinding" name="OrderWSClientPort">
+      <soap:address location="http://localhost:8081/hellows/ordersclient"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8081/hellows/ordersclient</con:endpoint></con:endpoints><con:operation id="3751607d-3033-4953-837c-b2c8841ec6fe" isOneWay="false" action="" name="order" bindingOperationName="order" type="Request-Response" outputName="orderResponse" inputName="order" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8ed79cd2-1e6f-489d-a35a-fc166762ace9" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/hellows/ordersclient</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.soaptest.ws.kissan.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:order/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.soaptest.ws.kissan.com/OrderWSClient/order"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="64b1dbe9-ffb2-492b-99f9-4e4745e1c2fe" isOneWay="false" action="" name="createOrder" bindingOperationName="createOrder" type="Request-Response" outputName="createOrderResponse" inputName="createOrder" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="dd2142ff-09ca-40ea-a7ef-fbcfe2f38fc7" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/hellows/ordersclient</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.soaptest.ws.kissan.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:createOrder>
+         <!--Optional:-->
+         <arg0>
+            <customerId>1</customerId>
+            <order>
+               <id>3</id>
+               <!--1 or more repetitions:-->
+               <product>
+                  <!--Optional:-->
+                  <id>1</id>
+                  <!--Optional:-->
+                  <description>Rollex Watch</description>
+                  <!--Optional:-->
+                  <quantity>1</quantity>
+               </product>
+            </order>
+         </arg0>
+      </ws:createOrder>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.soaptest.ws.kissan.com/OrderWSClient/createOrder"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="2b666e3f-1727-4e8e-971b-48f50bac38ec" name="OrderWSClientServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="9cee2774-c89b-431b-8813-b055ee14f827" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="order TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="5d96a5b6-a4b1-42be-9763-a116263ec95d" name="order"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>OrderWSClientServiceSoapBinding</con:interface><con:operation>order</con:operation><con:request name="order" id="1bec100d-ce6d-413e-94d5-58d9b8aeabda"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/hellows/ordersclient</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.soaptest.ws.kissan.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:order/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://ws.soaptest.ws.kissan.com/OrderWSClient/order"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="f73d2b96-009f-4798-86ff-115df994db25" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="order TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="6438a24e-2da1-45cc-ad30-a3dfd9258b5f" name="order"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>OrderWSClientServiceSoapBinding</con:interface><con:operation>order</con:operation><con:request name="order" id="0bdc6a8e-a61f-499b-af58-f8029fc0c150"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/hellows/ordersclient</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.soaptest.ws.kissan.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:order/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://ws.soaptest.ws.kissan.com/OrderWSClient/order"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="98ccf338-47c6-46ae-92c2-d7a7c75d8246" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="createOrder TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="b9cafb1c-1afe-479b-bbbd-d77233f5218a" name="createOrder"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>OrderWSClientServiceSoapBinding</con:interface><con:operation>createOrder</con:operation><con:request name="createOrder" id="51e3f692-0792-416e-bc94-2172cd8afcd4"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/hellows/ordersclient</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.soaptest.ws.kissan.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:createOrder>
+         <!--Optional:-->
+         <arg0>
+            <customerId>?</customerId>
+            <order>
+               <id>?</id>
+               <!--1 or more repetitions:-->
+               <product>
+                  <!--Optional:-->
+                  <id>?</id>
+                  <!--Optional:-->
+                  <description>?</description>
+                  <!--Optional:-->
+                  <quantity>?</quantity>
+               </product>
+            </order>
+         </arg0>
+      </ws:createOrder>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://ws.soaptest.ws.kissan.com/OrderWSClient/createOrder"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

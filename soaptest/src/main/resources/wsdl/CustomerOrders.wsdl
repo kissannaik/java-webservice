@@ -1,0 +1,38 @@
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.wsdlfirst.kissan.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://www.kissan.com/" name="CustomerOrderServiceImplService" targetNamespace="http://ws.wsdlfirst.kissan.com/">
+    <wsdl:import location="http://localhost:8080/wsdlfirst/customerordersservice?wsdl=CustomerOrdersPortType.wsdl" namespace="http://www.kissan.com/"> </wsdl:import>
+    <wsdl:binding name="CustomerOrderServiceImplServiceSoapBinding" type="ns1:CustomerOrdersPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="deleteOrders">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="deleteOrders">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="deleteOrdersResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createOrders">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="createOrders">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="createOrdersResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getOrders">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getOrders">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getOrdersResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CustomerOrderServiceImplService">
+        <wsdl:port binding="tns:CustomerOrderServiceImplServiceSoapBinding" name="CustomerOrderServiceImplPort">
+            <soap:address location="http://localhost:8080/wsdlfirst/customerordersservice"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

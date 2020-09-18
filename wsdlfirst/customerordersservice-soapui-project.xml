@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="7bfda53d-06fb-40e6-8c91-12d81dbf27d6" activeEnvironment="Default" name="customerordersservice" resourceRoot="" soapui-version="5.6.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="e1431d3d-e886-4cd1-bb43-a2dd13996656" wsaVersion="NONE" name="CustomerOrderServiceImplServiceSoapBinding" type="wsdl" bindingName="{http://ws.wsdlfirst.kissan.com/}CustomerOrderServiceImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/wsdlfirst/customerordersservice?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/wsdlfirst/customerordersservice?wsdl"><con:part><con:url>http://localhost:8080/wsdlfirst/customerordersservice?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="CustomerOrderServiceImplService" targetNamespace="http://ws.wsdlfirst.kissan.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.wsdlfirst.kissan.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://www.kissan.com/">
+  <wsdl:import location="http://localhost:8080/wsdlfirst/customerordersservice?wsdl=CustomerOrdersPortType.wsdl" namespace="http://www.kissan.com/"></wsdl:import>
+  <wsdl:binding name="CustomerOrderServiceImplServiceSoapBinding" type="ns1:CustomerOrdersPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="deleteOrders">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="deleteOrders">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteOrdersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createOrders">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createOrders">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createOrdersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrders">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getOrders">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getOrdersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerOrderServiceImplService">
+    <wsdl:port binding="tns:CustomerOrderServiceImplServiceSoapBinding" name="CustomerOrderServiceImplPort">
+      <soap:address location="http://localhost:8080/wsdlfirst/customerordersservice"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8080/wsdlfirst/customerordersservice?wsdl=CustomerOrdersPortType.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="CustomerOrdersPortType" targetNamespace="http://www.kissan.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://www.kissan.com/">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.kissan.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.kissan.com/">
+      <xs:element name="createOrdersRequest" type="tns:createOrdersRequest"/>
+      <xs:element name="createOrdersResponse" type="tns:createOrdersResponse"/>
+      <xs:element name="deleteOrdersRequest" type="tns:deleteOrdersRequest"/>
+      <xs:element name="deleteOrdersResponse" type="tns:deleteOrdersResponse"/>
+      <xs:element name="getOrdersRequest" type="tns:getOrdersRequest"/>
+      <xs:element name="getOrdersResponse" type="tns:getOrdersResponse"/>
+      <xs:complexType name="deleteOrdersRequest">
+        <xs:sequence>
+          <xs:element name="customerId" type="xs:integer"/>
+          <xs:element name="orderId" type="xs:integer"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteOrdersResponse">
+        <xs:sequence>
+          <xs:element name="result" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createOrdersRequest">
+        <xs:sequence>
+          <xs:element name="customerId" type="xs:integer"/>
+          <xs:element name="order" type="tns:order"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="order">
+        <xs:sequence>
+          <xs:element name="id" type="xs:integer"/>
+          <xs:element maxOccurs="unbounded" name="product" type="tns:product"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="product">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="0" name="quantity" type="xs:integer"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createOrdersResponse">
+        <xs:sequence>
+          <xs:element name="result" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getOrdersRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="customerId" type="xs:integer"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getOrdersResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="order" nillable="true" type="tns:order"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="deleteOrders">
+    <wsdl:part element="ns1:deleteOrdersRequest" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOrders">
+    <wsdl:part element="ns1:getOrdersRequest" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteOrdersResponse">
+    <wsdl:part element="ns1:deleteOrdersResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createOrders">
+    <wsdl:part element="ns1:createOrdersRequest" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createOrdersResponse">
+    <wsdl:part element="ns1:createOrdersResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOrdersResponse">
+    <wsdl:part element="ns1:getOrdersResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CustomerOrdersPortType">
+    <wsdl:operation name="deleteOrders">
+      <wsdl:input message="ns1:deleteOrders" name="deleteOrders"></wsdl:input>
+      <wsdl:output message="ns1:deleteOrdersResponse" name="deleteOrdersResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createOrders">
+      <wsdl:input message="ns1:createOrders" name="createOrders"></wsdl:input>
+      <wsdl:output message="ns1:createOrdersResponse" name="createOrdersResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrders">
+      <wsdl:input message="ns1:getOrders" name="getOrders"></wsdl:input>
+      <wsdl:output message="ns1:getOrdersResponse" name="getOrdersResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/wsdlfirst/customerordersservice</con:endpoint></con:endpoints><con:operation id="f431b209-9bdc-46d1-a942-683995be1af6" isOneWay="false" action="" name="createOrders" bindingOperationName="createOrders" type="Request-Response" outputName="createOrdersResponse" inputName="createOrders" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="35931a46-3cae-4091-9aa5-4b03f7c45db1" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wsdlfirst/customerordersservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:kis="http://www.kissan.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <kis:createOrdersRequest>
+         <customerId>1</customerId>
+         <order>
+            <id>2</id>
+            <!--1 or more repetitions:-->
+            <product>
+               <!--Optional:-->
+               <id>1</id>
+               <!--Optional:-->
+               <description>MacBook Pro</description>
+               <!--Optional:-->
+               <quantity>1</quantity>
+            </product>
+         </order>
+      </kis:createOrdersRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.wsdlfirst.kissan.com/CustomerOrdersPortType/createOrders"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="62978899-55d8-4267-877a-8e23489aa2a3" isOneWay="false" action="" name="getOrders" bindingOperationName="getOrders" type="Request-Response" outputName="getOrdersResponse" inputName="getOrders" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a54beae9-8aef-419f-b104-0e889687ce54" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wsdlfirst/customerordersservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:kis="http://www.kissan.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <kis:getOrdersRequest>
+         <!--Optional:-->
+         <customerId>1</customerId>
+      </kis:getOrdersRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.wsdlfirst.kissan.com/CustomerOrdersPortType/getOrders"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="3d00edf6-3e69-49f0-924e-14d66ed1ab5f" isOneWay="false" action="" name="deleteOrders" bindingOperationName="deleteOrders" type="Request-Response" outputName="deleteOrdersResponse" inputName="deleteOrders" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d2c4d400-02b7-4b25-9759-0dd0bf8e4acd" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wsdlfirst/customerordersservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:kis="http://www.kissan.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <kis:deleteOrdersRequest>
+         <customerId>1</customerId>
+         <orderId>2</orderId>
+      </kis:deleteOrdersRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.wsdlfirst.kissan.com/CustomerOrdersPortType/deleteOrders"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="d39e1d2f-7e9c-478b-862e-8fd3131aff11" name="CustomerOrderServiceImplServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="2d2518bf-9b80-4241-95ba-3926cf1328aa" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="createOrders TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="d39bcbcd-8dfc-49ef-8e55-57beae84740c" name="createOrders"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CustomerOrderServiceImplServiceSoapBinding</con:interface><con:operation>createOrders</con:operation><con:request name="createOrders" id="50e53541-e85d-4a50-acec-e1a0201f8e52"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wsdlfirst/customerordersservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:kis="http://www.kissan.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <kis:createOrdersRequest>
+         <customerId>?</customerId>
+         <order>
+            <id>?</id>
+            <!--1 or more repetitions:-->
+            <product>
+               <!--Optional:-->
+               <id>?</id>
+               <!--Optional:-->
+               <description>?</description>
+               <!--Optional:-->
+               <quantity>?</quantity>
+            </product>
+         </order>
+      </kis:createOrdersRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://ws.wsdlfirst.kissan.com/CustomerOrdersPortType/createOrders"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="ed9f05cd-d5dc-4863-9e35-c6fa3997ade4" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getOrders TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="d87ff98d-d00f-4077-9924-57756edaadbb" name="getOrders"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CustomerOrderServiceImplServiceSoapBinding</con:interface><con:operation>getOrders</con:operation><con:request name="getOrders" id="1a77e7dc-dff2-48b9-9947-d9d7570b080e"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wsdlfirst/customerordersservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:kis="http://www.kissan.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <kis:getOrdersRequest>
+         <!--Optional:-->
+         <customerId>?</customerId>
+      </kis:getOrdersRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://ws.wsdlfirst.kissan.com/CustomerOrdersPortType/getOrders"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="aaf3d3c2-abd6-495d-8bc3-9fa9e0674a48" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="createOrders TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="3de52853-4ee1-4a53-b560-a5f2af1886c0" name="createOrders"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CustomerOrderServiceImplServiceSoapBinding</con:interface><con:operation>createOrders</con:operation><con:request name="createOrders" id="1bb10cdf-88c6-41ba-b826-46667001d518"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wsdlfirst/customerordersservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:kis="http://www.kissan.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <kis:createOrdersRequest>
+         <customerId>?</customerId>
+         <order>
+            <id>?</id>
+            <!--1 or more repetitions:-->
+            <product>
+               <!--Optional:-->
+               <id>?</id>
+               <!--Optional:-->
+               <description>?</description>
+               <!--Optional:-->
+               <quantity>?</quantity>
+            </product>
+         </order>
+      </kis:createOrdersRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://ws.wsdlfirst.kissan.com/CustomerOrdersPortType/createOrders"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="31c2d3f6-4390-46a5-9cde-519212753de6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getOrders TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="8d8cfeb6-ae4f-4f71-bd42-9716585419c1" name="getOrders"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CustomerOrderServiceImplServiceSoapBinding</con:interface><con:operation>getOrders</con:operation><con:request name="getOrders" id="66287955-b5fc-417a-b411-2d22f6bc8745"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wsdlfirst/customerordersservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:kis="http://www.kissan.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <kis:getOrdersRequest>
+         <!--Optional:-->
+         <customerId>?</customerId>
+      </kis:getOrdersRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://ws.wsdlfirst.kissan.com/CustomerOrdersPortType/getOrders"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="cbb920b8-fadc-4875-b3fb-ba3a2f357ff9" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="deleteOrders TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="86e9fa4d-805f-4d65-879a-d27f55b707c3" name="deleteOrders"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CustomerOrderServiceImplServiceSoapBinding</con:interface><con:operation>deleteOrders</con:operation><con:request name="deleteOrders" id="22887975-ff89-42b8-8207-b49899b3a537"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/wsdlfirst/customerordersservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:kis="http://www.kissan.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <kis:deleteOrdersRequest>
+         <customerId>?</customerId>
+         <orderId>?</orderId>
+      </kis:deleteOrdersRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://ws.wsdlfirst.kissan.com/CustomerOrdersPortType/deleteOrders"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

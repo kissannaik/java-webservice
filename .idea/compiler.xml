@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="jaxabtest" />
+        <module name="javafirstws" />
+        <module name="soaptest" />
+        <module name="wsdlfirst" />
+        <module name="javafirstclient" />
+        <module name="restws" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="soaptest (1)" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="javafirstclient" options="-parameters" />
+      <module name="javafirstws" options="-parameters" />
+      <module name="restws" options="-parameters" />
+      <module name="soaptest" options="-parameters" />
+      <module name="soaptest (1)" options="-parameters" />
+      <module name="wsdlfirst" options="-parameters" />
+    </option>
+  </component>
+</project>
